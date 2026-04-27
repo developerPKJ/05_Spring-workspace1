@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<!--
+		* pom.xml 파일
+		
+		- Maven 의 설정파일 (Spring 의 설정파일은 아님!!)
+		- 이 프로젝트에 대한 기본 정보들과 필요한 라이브러리들의 정보들을 적는 파일
+		
+		* Maven 
+		
+		- 자바용 프로젝트 관리 도구 (기능 및 지원 프레임워크)
+		- 프로젝트의 배포 및 정보를 관리할 수 있고, 
+		  이 프로젝트에서 필요로 하는 라이브러리들의 정보 또한 관리 가능한 프레임워크
+	-->
+	
+	<!-- * 이 부분은 스프링 부트의 버전 정보를 기술한 부분 -->
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	
+	<!-- * 이 부분은 이 프로젝트에 대한 설정값들이 적혀있는 부분 (아까 프로젝트 생성 시 설정했던 값들이 그대로 적혀있음) -->
+	<groupId>com.kh</groupId> <!-- 2번째 레벨까지의 패키지명 -->
+	<artifactId>web</artifactId> <!-- 3번째 레벨의 패키지명 -->
+	<version>0.0.1-SNAPSHOT</version> <!-- 나중에 배포될 때의 버전 -->
+	<name>1_Web</name> <!-- 프로젝트명 -->
+	<description/> <!-- 이 프로젝트에 대한 설명 -->
+	
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	
+	<!--
+		* properties
+		
+		- 이 pom.xml 문서에서 사용할 설정값들을 담아두는 변수 선언문
+		- 태그명이 곧 변수명이 됨!!
+	-->
+	<properties>
+		<java.version>21</java.version> <!-- java.version 이라는 변수에 21 이라는 값이 담겨있는 것 -->
+	</properties>
+	
+	<!--
+		* dependencies
+		
+		- pom.xml 파일의 제일 핵심적인 부분!!
+		- 이 프로그램 (웹 사이트) 구현 시 필요한 외부 라이브러리들 (.jar 파일들) 을 적는 부분
+		- 이 영역에 라이브러리 정보를 적으면 자동으로 다운로드 받아지고, 이 프로젝트에 바로 적용된다!!
+		  (즉, 직접 다운로드 받아서 연동할 필요가 없어짐!!)
+		- 단, 여기서 연동이 안되는 라이브러리가 있다면 직접 다운받아 연동해도 됨!!
+		
+		* 아까 프로젝트 생성 시 기본적으로 등록했었던 라이브러리들
+		
+		1. Spring Boot DevTools : 스프링 기본 설정 관련 라이브러리
+		2. Spring Web : Spring 으로 MVC 패턴을 구현하기 위한 라이브러리
+		
+		(항상 프로젝트 생성 시 위의 두개는 반드시 체크하고 넘어가야함)
+		
+		* 필요한 라이브러리 등록 방법
+		
+		- Maven Repository 사이트 접속 후 
+		  내가 필요한 라이브러리 정보를 dependency 태그 형식으로 가져와서 붙여넣기
+	-->
+	<!-- * 이 부분은 추가할 jar 파일에 대한 정보들을 기술하는 부분 -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- jsp 를 사용하기 위한 라이브러리 추가 -->
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+	</dependencies>
+
+	<!-- 
+		* build 
+		
+		- 이 웹 프로젝트 배포 시 필요한 설정들을 담은 부분
+	-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
