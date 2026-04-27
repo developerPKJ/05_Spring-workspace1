@@ -211,6 +211,69 @@ public class BasicController {
 	 	
 	}
 	
+	/*
+	 * 응답 페이지를 만들어서 전달하는 방법 2
+	 * - html 코드 내에 자바 코드를 기술하는 방법 (JSP 라는 기술이 대표적)
+	 * */
+	
+//	POST 방식으로 test2에 요청했다면 해당 이 메소드가 호출됨
+//	method 요청 방식이 어긋나면 405 에러가 발생
+	@RequestMapping(value="test2", method=RequestMethod.POST)
+	public String requestPostController(HttpServletRequest request) {
+//		System.out.println("POST 방식으로 요청이 들어왔네요..!");
+		
+//		요청 시 전달된 값들을 request의 parameter 영역으로부터 뽑기
+		String name = request.getParameter("name");
+		String gender = request.getParameter("gender");
+		int age = Integer.parseInt(request.getParameter("age"));
+		String city = request.getParameter("city");
+		double height = Double.parseDouble(request.getParameter("height"));
+		
+		String[] foods = request.getParameterValues("food");
+		
+		System.out.println("이름 : " + name);
+		System.out.println("성별 : " + gender);
+		System.out.println("나이 : " + age);
+		System.out.println("사는 도시 : " + city);
+		System.out.println("키 : " + height);
+		
+		if(foods == null) {
+			System.out.println("좋아하는 음식 : 없음");
+		} else {
+			System.out.println("좋아하는 음식 : " + String.join(", ", foods));
+		}
+		
+//		이 뽑아낸 값들을 가지고 요청 처리해야함(DB와 상호작용)
+//		보통의 흐름 : Service <-> Dao <-> DB
+		
+//		DB 까지 다녀왔다라는 가정 하에 요청 처리 후 사용자가 보게 될 응답페이지를 만들어서 전달
+		
+//		JSP를 이용해 응답페이지 띄워보기(html 코드 내에 자바 코드를 기술하는 방법)
+		
+//		1. .jsp 파일 형식으로 응답페이지의 틀을 html태그를 이용해 작성
+//		> views 폴더에 responsePage.jsp 파일 만들어보기
+		
+//		2. 응답페이지에서 필요로 하는 데이터들을 세팅해두기
+//		> 미리 만들어둔 responsePage.jsp 에서
+//			입력받았던 이름, 나이, 사는 도시, 키 , 성별, 좋아하는 음식을 출력해야 함
+//		> request의 attribute 영역에 key + value 세트로 데이터를 담아서 넘겨주기
+//			request.setAttribute("key, value);
+//			(다형성으로 key는 String, value는 Object 타입으로 담을 수 있음)
+		request.setAttribute("name", name);
+		request.setAttribute("age", age);
+		request.setAttribute("city", city);
+		request.setAttribute("height", height);
+		request.setAttribute("gender", gender);
+		request.setAttribute("foods", foods);
+		
+//		3. 응답페이지의 정보를 문자열로 리턴
+//		> 화면을 띄워주는 역할의 구문
+//		return "/WEB-INF/views/responsePage.jsp";
+//		> application.properties 파일에서 spring.mvc.view.prefix=/WEB-INF/views/
+		return "responsePage";
+//		responsePage.jsp 파일로 전달했기 때문에 해당 파일 내에서 포장을 풀어서 사용
+	}
+	
 }
 
 

@@ -135,6 +135,77 @@
 		</ul>
 
 	</form>
+	
+	<br><br>
+	
+	<hr>
+	
+	<h2>POST 방식으로 요청 후 응답페이지 받아보기</h2>
+	
+	<p>
+		특징1. POST 방식으로 요청하는 것은 URL 주소의 BODY 영역에 데이터를 포함시켜서 요청하는 것 <br>
+		- 사용자가 입력한 값 (데이터)들이 URL 주소에 노출되지 않음 <br>
+		- 보안유지가 가능함 <br>
+		- 로그인이나 회원가입 같은 경우 POST 방식이 더 적합함 <br><br>
+		
+		특징2. URL 주소의 BODY 영역은 전송하는 데이터의 길이 제한이 없음 <br>
+		- 게시판 작성 기능 같은 경우는 POST 
+		
+		특징3. 즐겨찾기 자체는 가능하나, 전달되는 데이터가 URL을 통해 노출
+	</p>
+	
+	<!-- POST 방식
+		요청 보낼 url : http://local	
+	-->
+	<form action="/web/test2" method="post"> <!-- 절대경로방식 -->
+		
+		<ul>
+			<li>
+				이름 : <input type="text" name="name">
+				<!-- 반드시 name 속성으로 키값도 같이 넘겨야함!! -->
+			</li>
+			<li>
+				성별 : 
+				남자 <input type="radio" name="gender" value="M">
+				여자 <input type="radio" name="gender" value="F">
+				<!-- name 속성을 동일하게 설정해서 한 묶음으로 묶기 -->
+			</li>
+			<li>
+				나이 : <input type="number" name="age">
+			</li>
+			<li>
+				사는 도시 : 
+				<select name="city">
+					<option>서울시</option>
+					<option>경기도</option>
+					<option>강원도</option>
+					<option>충청도</option>
+					<option>전라도</option>
+					<option>경상도</option>
+				</select>
+				<!--
+					option 에 value 속성을 생략하면
+					선택된 option 의 innerText 값이 value 로 넘어감
+				-->
+			</li>
+			<li>
+				키 : <input type="range" name="height" min="140" max="200">
+			</li>
+			<li>
+				좋아하는 음식 (모두 고르시오) :
+				한식 <input type="checkbox" name="food" value="한식">
+				중식 <input type="checkbox" name="food" value="중식">
+				일식 <input type="checkbox" name="food" value="일식">
+				양식 <input type="checkbox" name="food" value="양식">
+				분식 <input type="checkbox" name="food" value="분식">
+			</li>
+			<li>
+				<input type="submit">
+				<input type="reset">
+			</li>
+		</ul>
+
+	</form>
 
 </body>
 </html>
