@@ -217,5 +217,13 @@ public class SpringController {
 	 * 어떤 Controller의 어떤 메소드를 호출할지 결정해주는 역할을 하는 자바 클래스(객체)
 	 * - 반대로 Controller에서 리턴해주는 응답페이지 관련 정보들을 돌려받아서
 	 * 앞뒤로 prefix, suffix 붙여서 최종적으로 적합한 응답페이지(.jsp)를 찾아 보여주는 역할까지 수행
+	 * 
+	 * 요청이 들어올 때 마다 해당 Controller 객체가 먼저 생성됨(그 안에 메소드 호출하기 위해)
+	 * - 해당 Controller 클래스 상단에 @Controller 어노테이션이 작성되어 있어야 함
+	 * 
+	 * @Controller 어노테이션
+	 * : 이 클래스가 Spring에서 요청을 처리해주는 Controller 클래스임을 명시하는 어노테이션
+	 * - 요청이 들어올 때마다 Spring에 의해 DispatcherServlet에서 해당 컨트롤러 클래스에 대한 객체를
+	 * 	생성할 수 있도록 유도해주는 역할
 	 * */
 }

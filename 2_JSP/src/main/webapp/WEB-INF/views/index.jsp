@@ -121,6 +121,21 @@
 	<h3>
 		<a href="/jsp/pizza/orderForm">피자 주문 페이지로 &raquo;</a>
 	</h3>
+	
+	<br><br>
+	
+	<hr>
+	
+	<!-- 로그인 예시 -->
+	
+	<h2>
+		로그인 페이지 (jsp) --> 로그인 요청 --> 로그인 요청을 받는 Controller
+		--> 요청 처리 --> 성공/실패 페이지 (응답 페이지)
+	</h2>
+	
+	<h3>
+		<a href="/jsp/member/loginForm">로그인 페이지로 &raquo;</a>
+	</h3>
 
 </body>
 </html>

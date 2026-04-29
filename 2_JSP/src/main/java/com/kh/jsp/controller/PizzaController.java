@@ -107,7 +107,11 @@ public class PizzaController {
 		// > 이 정보들을 가지고 최종 결제 전 결제 페이지로 출력시켜버릴 것!!
 		//   응답페이지로 결제 페이지를 하나 만들거고, 위의 데이터를 응답데이터로 보내고
 		//   최종적으로 알맞은 자리에 값들을 뽑아서 출력해줄 예정!!
-		// 3) 결제 페이지로 이동시키기 (응답페이지로 이동시키기)
+		
+		// 3) 요청처리 후 사용자가 보게 될 응답페이지 (결제페이지) 를 만들어서 보여줄 것!! (.jsp 방식)
+		
+		// request 의 attribute 영역에 setAttribute 메소드를 이용해서
+		// 키 + 밸류 형태로 응답데이터들을 담아주기
 		request.setAttribute("userName", userName);
 		request.setAttribute("phone", phone);
 		request.setAttribute("address", address);
@@ -117,8 +121,10 @@ public class PizzaController {
 		request.setAttribute("sides", sides);
 		request.setAttribute("payment", payment);
 		request.setAttribute("price", price);
+		// > 응답페이지에서 필요로 하는 데이터들 넘겨주기
 		
 		return "05_PizzaPayment";
+		// > 응답할 jsp 정보를 문자열로 리턴 (자동완성 감안해서)
 	}
 	
 }
