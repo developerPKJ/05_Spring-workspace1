@@ -46,12 +46,25 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- jsp 용 라이브러리 -->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
+		
+		<!-- jstl 용 라이브러리 -->
+		<dependency>
+		    <groupId>jakarta.servlet.jsp.jstl</groupId>
+		    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.glassfish.web</groupId>
+		    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>

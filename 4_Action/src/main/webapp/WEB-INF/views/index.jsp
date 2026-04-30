@@ -91,10 +91,16 @@
 	
 	<h3>2. 커스텀 액션 태그 (Custom Action Tag)</h3>
 	
+	<p>
+		- JSP 페이지에서 곧바로 사용이 불가능 (별도의 라이브러리 연동이 필요함) <br>
+		- 태그명 앞에 접두어로 jsp: 이외의 접두어가 붙는다. (접두어는 내가 지정) <br>
+		
+		<br>
+		
+		- 제공되고 있는 유용한 라이브러리가 있음!! JSTL!!
+	</p>
 	
-	
-	
-	
+	<a href="/action/custom/jstl">JSTL</a>
 	
 </body>
 </html>
